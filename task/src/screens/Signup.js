@@ -1,6 +1,6 @@
 import {React, useState,} from 'react';
 import { StyleSheet , View, Text, Image, TextInput, TouchableOpacity} from 'react-native';
-import OutlinedInput from '../components/OutlinedInput';
+import OutlinedTextInput from '../components/OutlinedTextInput ';
 import ButtonComponent from '../components/BottonComponent';
 import { Button } from 'react-native-paper';
 
@@ -13,6 +13,7 @@ const styles = StyleSheet.create({
  
   inputView: {
     width: '100%',
+    height:'10%',
     marginBottom: 30,
     alignItems:'center',
     justifyContent:'center',
@@ -44,6 +45,8 @@ const styles = StyleSheet.create({
   },
   textView:{height: '20%',justifyContent:'center', alignItems:'center'},
   textStyle:{fontSize:18, color:'#161616', fontWeight:'500'},
+  textStyle2:{fontSize:18, color:'#5E9959', fontWeight:'500'},
+  
 })
 
 const Signup = ({navigation}) => {
@@ -51,45 +54,59 @@ const Signup = ({navigation}) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
+    const handleSubmit = () => {
+      // Handle the password submission here, e.g., send it to an API
+      console.log('Email submitted:', email);
+      console.log('Password submitted:', password);
+      console.log('Username submitted:', username);
+      navigation.navigate('ForgetPassword')
+    };
+
   return (
     <View style={styles.container}>
-      <View style={{height:'25%',width:'100%', alignItems:'flex-end'}}>
-      <View style={{height:'100%',width:'58%', backgroundColor:'#9CFE93', borderBottomLeftRadius:180,alignItems:'flex-end',}}>
+      <View style={{height:'23%',width:'100%', alignItems:'flex-end'}}>
+      <View style={{ height: '100%', width: '60%', backgroundColor: '#99E392', borderBottomLeftRadius: 200, alignItems: 'flex-end', }}>   
+      <View style={{height:'85%',width:'85%', backgroundColor:'#9CFE93', borderBottomLeftRadius:180,alignItems:'flex-end',}}>
       </View>
+     </View>
       </View>
       <View style={styles.welcomeView}>
         <Text style={styles.welcomeText}>Welcome Back!!</Text>
         <Text style={styles.signinText}>Sign Up</Text>
       </View>
       <View style={styles.inputView}>
-      <OutlinedInput
+      <OutlinedTextInput
         label="Username"
+        placeholder={'Enter your username'}
         value={username}
-        onChangeText={(value) => setText(value)}
+        onChangetext={(value) => setText(value)}
       />
       </View>
       <View style={styles.inputView}>
-      <OutlinedInput
-        label="Email"
+      <OutlinedTextInput
+        label="Email Id"
+        placeholder={'Enter your email'}
         value={email}
-        onChangeText={(value) => setText(value)}
+        onChangetext={(value) => setText(value)}
       />
       </View>
       <View style={styles.inputView}>
-      <OutlinedInput
+      <OutlinedTextInput
         label="Password"
+        placeholder={'Enter your password'}
         value={password}
-        onChangeText={(value) => setText(value)}
+        passwordSecurity={true}
+        onChangetext={(value) => setText(value)}
       />
       </View>
        <View style={styles.buttonView}>
        <ButtonComponent
         title={"Sign Up"}
-        onPress={()=> navigation.navigate('ForgetPassword')}
+        onPress={handleSubmit}
       />
        </View>
        <TouchableOpacity style={styles.textView} onPress={()=> navigation.navigate('SignIn')}>
-        <Text style={styles.textStyle}>Already have an account ? Sign Up</Text>
+        <Text><Text style={styles.textStyle}>Already have an account ?</Text> <Text style={styles.textStyle2}>Sign Up</Text></Text>
        </TouchableOpacity>
     </View>
   );

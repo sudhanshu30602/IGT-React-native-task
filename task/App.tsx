@@ -13,6 +13,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Signin from './src/screens/Signin';
 import Signup from './src/screens/Signup';
 import ForgetPassword from './src/screens/ForgetPassword';
+import OTPverification from './src/screens/OTPverification';
 
 const Stack = createNativeStackNavigator();
 
@@ -28,6 +29,7 @@ function App() {
           <Stack.Screen name="SignIn" component={Signin} />
           <Stack.Screen name="SignUp" component={Signup} />
           <Stack.Screen name="ForgetPassword" component={ForgetPassword} />
+          <Stack.Screen name="OTPverification" component={OTPverification} />
         </Stack.Navigator>
       </NavigationContainer>
     </>

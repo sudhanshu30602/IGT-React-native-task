@@ -2,37 +2,28 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, Button, StyleSheet, Image } from 'react-native';
 import OutlinedTextInput from '../components/OutlinedTextInput ';
 import ButtonComponent from '../components/BottonComponent';
+import OTPInput from '../components/OTPinput';
 
-const ForgetPassword = ({navigation}) => {
-  const [email, setEmail] = useState('');
+const OTPverification = ({navigation}) => {
+  
 
-  const handleSubmit = () =>   { 
-  console.log('Email submitted:', email);
-  };
+  const handleSendEmail = () =>   {};
 
   return (
     <View style={styles.container}>
       <View style={styles.ImageView}>
       <Image
-        source={require('../assets/forgetImage.png')}
+        source={require('../assets/password.png')}
       />
       </View>
       <View>
       <View style={styles.textView}>
-        <Text style={styles.titleStyle}>Forget Password</Text>
-        <Text style={styles.describeStyle}>Don’t worry! It happens, Please enter 
-              the  email address associated with
-          your account.</Text>
+        <Text style={styles.titleStyle}>Enter OTP</Text>
+        <Text style={styles.describeStyle}>Please enter your 5 digit verification code for password.</Text>
       </View>
       <View>
       <View style={styles.inputView}>
-      <OutlinedTextInput
-        label="Email Id"
-        placeholder={'Enter your email'}
-        passwordSecurity={true}
-        value={email}
-        onChangetext={(value) => setEmail(value)}
-      />
+        <OTPInput/>
       </View>
        <View style={styles.buttonView}>
        <ButtonComponent
@@ -46,7 +37,7 @@ const ForgetPassword = ({navigation}) => {
   );
 };
 
-export default ForgetPassword;
+export default OTPverification;
 
 const styles = StyleSheet.create({
   container:{flex: 1, backgroundColor:'white'},
@@ -54,10 +45,10 @@ const styles = StyleSheet.create({
   ImageView:{height:'40%', alignItems:'center', justifyContent:'center'},
   titleStyle:{fontSize:30, color:'#161616'},
   describeStyle:{fontSize:18, color:'#6B6B6B'},
-  textView:{justifyContent:'center' , margin:25},
+  textView:{justifyContent:'center' ,marginLeft:25},
   inputView: {
     width: '100%',
-   // marginBottom: 30,
+    marginTop:90,
     height:'33%',
     alignItems:'center',
     justifyContent:'center',
